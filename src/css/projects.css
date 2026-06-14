@@ -1,0 +1,430 @@
+/* ===== PROJECTS ===== */
+.projects {
+  background: var(--paper);
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.projects__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.projects__header {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.projects__count {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-muted);
+}
+
+/* Projects grid — alternating layout */
+.projects__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.projects__grid .project-card:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+/* Project Card */
+.project-card {
+  border: 1.5px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+  background: var(--cream);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Image area */
+.project-card__image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.projects__grid .project-card:nth-child(3) .project-card__image {
+  aspect-ratio: 21/7;
+}
+
+.project-card__img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Halftone pattern background for placeholder */
+.project-card__img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(26, 23, 20, 0.18) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+.project-card__img-placeholder::after {
+  content: attr(data-label);
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--ink);
+  opacity: 0.5;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Tag badge */
+.project-card__tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  background: var(--ink);
+  color: var(--cream);
+  z-index: 2;
+}
+
+/* Body */
+.project-card__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card__category {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.4rem;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.project-card__desc {
+  color: var(--ink-light);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+/* Tech stack pills */
+.project-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-card__pill {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border-thin);
+  color: var(--ink-muted);
+  background: var(--paper);
+}
+
+/* Action buttons */
+.project-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__grid .project-card:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .projects__grid .project-card:nth-child(3) .project-card__image {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* ===== PROCESSING SECTION ===== */
+.processing-section {
+  background: var(--cream);
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.processing-section__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.processing-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.processing-section__subtext {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+  transform: rotate(1deg);
+}
+
+/* Grid — same structure as skills__grid */
+.processing-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Block card — mirrors skills__card */
+.processing-block {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.processing-block:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Colored corner fold — gold accent for creative coding */
+.processing-block::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 20px 20px;
+  border-color: transparent transparent var(--accent-gold) transparent;
+}
+
+/* Image area */
+.processing-block__img {
+  width: calc(100% + 3rem);
+  margin: -1.5rem -1.5rem 1.25rem;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.processing-block__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.processing-block__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  background-image: radial-gradient(circle, rgba(26, 23, 20, 0.15) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.processing-block__placeholder span {
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.processing-block__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.processing-block__label::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.processing-block__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.processing-block__desc {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.processing-block__desc::before {
+  content: '—';
+  color: var(--ink-muted);
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+.processing-block__actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .processing-section__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 440px) {
+  .processing-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ── Bird Canvas preview ── */
+.processing-block__bird-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #f7f2ea;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.processing-block__bird-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  gap: 0.2rem;
+  pointer-events: none;
+}
+
+.processing-block__bird-overlay span {
+  font-family: var(--font-hand);
+  font-size: clamp(0.7rem, 1.4vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  opacity: 0.55;
+  text-align: center;
+}
+
+.processing-block__bird-overlay small {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.processing-block:hover .processing-block__bird-overlay small {
+  opacity: 1;
+}
+
+/* Tech tags */
+.processing-block__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.processing-block__tag {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2em 0.55em;
+  border: 1px solid rgba(26,23,20,0.2);
+  border-radius: 100px;
+  color: var(--ink-muted);
+}
+
+/* ── Live p5.js sketch card (full-width) ── */
+.processing-block--wide {
+  grid-column: 1 / -1;
+}
+
+.processing-block__sketch {
+  margin-bottom: 1rem;
+}
+
+.processing-block__sketch canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}

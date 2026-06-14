@@ -1,0 +1,159 @@
+/* ===== ABOUT ===== */
+.about {
+  background: var(--paper);
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.about__grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Left column */
+.about__left {
+  position: sticky;
+  top: 6rem;
+}
+
+.about__photo-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* border-radius: 12px; */
+}
+
+.about__photo-placeholder {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: var(--ink-muted);
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+/* Decorative tape strip on photo */
+.about__tape {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 70px;
+  height: 20px;
+  background: rgba(196, 147, 58, 0.4);
+  border: 1px solid rgba(196, 147, 58, 0.6);
+}
+
+.about__caption {
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+  text-align: center;
+  transform: rotate(-1deg);
+  display: block;
+}
+
+/* Right column */
+.about__right {
+  padding-top: 0.5rem;
+}
+
+.about__heading {
+  margin-bottom: 1.5rem;
+}
+
+.about__heading em {
+  color: var(--accent-red);
+  font-style: italic;
+}
+
+.about__text {
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.about__text:last-of-type {
+  margin-bottom: 2rem;
+}
+
+/* Info tags */
+.about__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.about__tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 100px;
+}
+
+.about__tag.red {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.about__tag.green {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.about__tag.purple {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+}
+
+.about__tag.gold {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Handwritten annotation */
+.about__annotation {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--accent-red);
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about__left {
+    position: static;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}

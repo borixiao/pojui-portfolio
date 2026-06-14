@@ -1,0 +1,231 @@
+/* ===== GRAPHIC DESIGN ===== */
+.design {
+  background: var(--paper);
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.design__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.design__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.design__subtext {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+  transform: rotate(1deg);
+}
+
+/* Grid */
+.design__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Card */
+.design-card {
+  border: 1.5px solid var(--ink);
+  box-shadow: var(--shadow-card);
+  background: var(--cream);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.design-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Main image — full-width hero */
+.design-card__main-img {
+  width: 100%;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--ink);
+  position: relative;
+}
+
+.design-card__main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.design-card__year {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.6rem;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* Body: left meta + right gallery */
+.design-card__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.design-card__meta {
+  padding: 1.75rem 2rem;
+  border-right: 1.5px solid var(--ink);
+}
+
+.design-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.design-card__label::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.design-card__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.design-card__desc {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.design-card__collab {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.design-card__collab span {
+  font-style: italic;
+  color: var(--accent-green);
+}
+
+.design-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.design-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border-thin);
+  color: var(--ink-muted);
+  background: var(--paper);
+}
+
+/* Gallery */
+.design-card__gallery {
+  display: grid;
+  border-left: 1.5px solid var(--ink);
+}
+
+.design-card__gallery--2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.design-card__gallery--3 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.design-card__gallery--4 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.design-card__gallery-img {
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border-bottom: 1.5px solid var(--ink);
+  border-right: none;
+}
+
+.design-card__gallery--4 .design-card__gallery-img {
+  aspect-ratio: 16/9;
+}
+
+.design-card__gallery-img:nth-child(odd) {
+  border-right: 1.5px solid var(--ink);
+}
+
+.design-card__gallery-img:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/7;
+}
+
+.design-card__gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.design-card__gallery-img:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .design-card__body {
+    grid-template-columns: 1fr;
+  }
+
+  .design-card__meta {
+    border-right: none;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .design-card__gallery {
+    grid-template-columns: 1fr 1fr;
+    border-top: none;
+  }
+
+  .design-card__gallery-img {
+    border-left: none;
+    aspect-ratio: 4/3;
+  }
+
+  .design-card__gallery-img:nth-child(2) {
+    border-left: 1.5px solid var(--ink);
+  }
+
+  .design-card__main-img {
+    aspect-ratio: 16/9;
+  }
+}
