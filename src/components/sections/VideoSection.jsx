@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import '../../css/video.css'
 import videoSrc from '../../assets/yibulianghbu-compressed.mp4'
+import videoPoster from '../../assets/yibulianghbu-cover.jpg'
 
 /* ── helpers ─────────────────────────────────────────────── */
 const fmt = (s) => {
@@ -169,6 +170,7 @@ export default function VideoSection() {
               <video
                 ref={videoRef}
                 src={videoSrc}
+                poster={videoPoster}
                 className="vp__video"
                 onTimeUpdate={handleTimeUpdate}
                 onLoadedMetadata={handleLoaded}
