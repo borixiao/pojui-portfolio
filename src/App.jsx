@@ -1,12 +1,13 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import ClickSpark from './components/ClickSpark'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import ProcessingProjects from './components/ProcessingProjects'
-import GraphicDesign from './components/GraphicDesign'
-import Contact from './components/Contact'
+import Navbar from './components/layout/Navbar'
+import Hero from './components/sections/Hero'
+import ClickSpark from './components/ui/ClickSpark'
+import About from './components/sections/About'
+import Skills from './components/sections/Skills'
+import Projects from './components/sections/Projects'
+import ProcessingProjects from './components/sections/ProcessingProjects'
+import GraphicDesign from './components/sections/GraphicDesign'
+import VideoSection from './components/sections/VideoSection'
+import Contact from './components/sections/Contact'
 
 export default function App() {
   return (
@@ -31,6 +32,8 @@ export default function App() {
         <ProcessingProjects />
         <div className="zigzag-divider" aria-hidden="true" />
         <GraphicDesign />
+        <div className="zigzag-divider" aria-hidden="true" />
+        <VideoSection />
         <Contact />
       </main>
     </ClickSpark>
