@@ -211,11 +211,54 @@
   transform: rotate(1deg);
 }
 
+.processing-folder-stage {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: -0.5rem 0 2.75rem;
+}
+
+.processing-folder-stage__folder {
+  width: 280px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-folder {
+  filter: drop-shadow(7px 11px 0 rgba(26, 23, 20, 0.12));
+}
+
+.processing-folder__paper-title {
+  display: block;
+  max-width: 4.8rem;
+  overflow-wrap: anywhere;
+}
+
 /* Grid — same structure as skills__grid */
 .processing-section__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-1rem);
+  pointer-events: none;
+  transition:
+    max-height 0.6s ease,
+    opacity 0.35s ease,
+    transform 0.45s ease;
+}
+
+.processing-section__grid--open {
+  max-height: 2200px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Block card — mirrors skills__card */
@@ -339,12 +382,29 @@
 }
 
 @media (max-width: 640px) {
+  .processing-folder-stage {
+    min-height: 250px;
+    margin-bottom: 2rem;
+  }
+
+  .processing-folder-stage__folder {
+    transform: scale(0.8);
+  }
+
   .processing-section__grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 440px) {
+  .processing-folder-stage {
+    min-height: 220px;
+  }
+
+  .processing-folder-stage__folder {
+    transform: scale(0.68);
+  }
+
   .processing-section__grid {
     grid-template-columns: 1fr;
   }
