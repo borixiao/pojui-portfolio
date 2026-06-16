@@ -29,6 +29,7 @@ export default function Folder({
   className = '',
   label = 'Open folder',
   onOpenChange,
+  onItemClick,
 }) {
   const maxItems = 3
   const papers = items.slice(0, maxItems)
@@ -119,11 +120,18 @@ export default function Folder({
               className={`paper paper-${index + 1}`}
               onMouseMove={event => handlePaperMouseMove(event, index)}
               onMouseLeave={event => handlePaperMouseLeave(event, index)}
+              onClick={event => {
+                if (open && onItemClick) {
+                  event.stopPropagation()
+                  onItemClick(index)
+                }
+              }}
               style={
                 open
                   ? {
                       '--magnet-x': `${paperOffsets[index]?.x || 0}px`,
                       '--magnet-y': `${paperOffsets[index]?.y || 0}px`,
+                      cursor: onItemClick ? 'pointer' : 'default',
                     }
                   : {}
               }

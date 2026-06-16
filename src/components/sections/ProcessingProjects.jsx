@@ -1,15 +1,8 @@
-import { useState } from 'react'
 import '../../css/projects.css'
 import { processingProjects } from '../../data/projects.js'
 import BirdSilhouette from '../illustrations/BirdSilhouette'
-import Folder from '../ui/Folder'
 
 export default function ProcessingProjects() {
-  const [folderOpen, setFolderOpen] = useState(false)
-  const folderItems = processingProjects.slice(0, 3).map(project => (
-    <span key={project.id} className="processing-folder__paper-title">{project.title}</span>
-  ))
-
   return (
     <section className="processing-section" id="creative-coding">
       <div className="processing-section__inner">
@@ -21,24 +14,10 @@ export default function ProcessingProjects() {
           <span className="processing-section__subtext">generative experiments ↓</span>
         </div>
 
-        <div className="processing-folder-stage">
-          <div className="processing-folder-stage__folder">
-            <Folder
-              size={2.4}
-              color="#eac808"
-              className="custom-folder"
-              items={folderItems}
-              label="Open Processing projects folder"
-              onOpenChange={setFolderOpen}
-            />
-          </div>
-        </div>
-
-        <div className={`processing-section__grid ${folderOpen ? 'processing-section__grid--open' : ''}`}>
+        <div className="processing-section__grid processing-section__grid--open">
           {processingProjects.map(p => (
-            <div key={p.id} className={`processing-block`}>
+            <div key={p.id} className={`processing-block${p.liveCanvas === 'bird' ? ' processing-block--wide' : ''}`}>
 
-              {/* Live p5.js sketch */}
               {p.liveCanvas === 'bird' ? (
                 <div className="processing-block__sketch">
                   <BirdSilhouette />

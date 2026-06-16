@@ -212,30 +212,87 @@
 }
 
 .processing-folder-stage {
-  min-height: 300px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  align-items: flex-start;
+  gap: 3rem;
   margin: -0.5rem 0 2.75rem;
+  flex-wrap: wrap;
 }
 
 .processing-folder-stage__folder {
   width: 280px;
   height: 230px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Bird sketch sits alongside the folder */
+.processing-folder-stage__bird-card {
+  flex: 1 1 340px;
+  min-width: 0;
+}
+
+.processing-block--bird-featured {
+  height: 100%;
 }
 
 .custom-folder {
   filter: drop-shadow(7px 11px 0 rgba(26, 23, 20, 0.12));
 }
 
-.processing-folder__paper-title {
+/* Mini card inside folder paper */
+.processing-folder__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28em;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.processing-folder__card-img {
+  width: 100%;
+  flex: 1 1 auto;
+  overflow: hidden;
+  border-radius: 3px;
+  min-height: 0;
+}
+
+.processing-folder__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  max-width: 4.8rem;
-  overflow-wrap: anywhere;
+}
+
+.processing-folder__card-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.34rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.processing-folder__card-desc {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.28rem;
+  color: var(--ink-muted);
+  text-align: center;
+  line-height: 1.3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex-shrink: 0;
 }
 
 /* Grid — same structure as skills__grid */
@@ -487,4 +544,53 @@
   display: block;
   width: 100% !important;
   height: auto !important;
+}
+
+/* ── Project detail panel (revealed on folder card click) ── */
+.processing-detail {
+  animation: detailReveal 0.35s ease both;
+  margin-top: 0.5rem;
+}
+
+.processing-detail .processing-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+.processing-detail .processing-block__img {
+  grid-row: 1 / 5;
+  height: 100%;
+  min-height: 200px;
+  border-right: 1.5px solid var(--ink);
+  margin: -1.5rem -1.5rem -1.5rem -1.5rem;
+  margin-right: 0;
+  padding: 0;
+}
+
+.processing-detail .processing-block__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.processing-detail .processing-block__label,
+.processing-detail .processing-block__title,
+.processing-detail .processing-block__desc,
+.processing-detail .processing-block__tech,
+.processing-detail .processing-block__actions {
+  padding-left: 1.5rem;
+}
+
+@keyframes detailReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
